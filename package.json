@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.13.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1"
@@ -36,5 +37,5 @@
   "overrides": {
     "vite": "npm:rolldown-vite@7.2.5"
   },
-  "homepage": "http://yunlideyang.ltd/"
+  "homepage": "https://yunlideyang.github.io/personal-website"
 }

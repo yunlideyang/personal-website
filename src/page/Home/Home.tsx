@@ -1,15 +1,21 @@
+import { useEffect, useState } from 'react'
 import styles from './index.module.less'
-
+import testApi from '../../../api/testApi'
 export default function Home() {
+    const [data, setData] = useState<string>("开发者")
+    useEffect(() => {
+        testApi()
+            .then((data: any) => setData(data.message))
+    }, [])
     return (
         <div className={styles.home}>
             <div className={styles.container}>
                 <div className={styles.content}>
                     <div className={styles.greeting}>
                         <h1 className={styles.title}>你好，我是</h1>
-                        <h2 className={styles.name}>开发者</h2>
+                        <h2 className={styles.name}>{data}</h2>
                     </div>
-                    
+
                     <div className={styles.intro}>
                         <p className={styles.description}>
                             专注于创造优雅、高效的解决方案
