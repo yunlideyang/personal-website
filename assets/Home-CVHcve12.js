@@ -1,0 +1,1 @@
+import{t as e}from"./index-DE9TT3DH.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`home`})}export{n as default};
