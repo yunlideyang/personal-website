@@ -1,0 +1,1 @@
+import{t as e}from"./index-DXgvxH0w.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`home`})}export{n as default};
