@@ -7,11 +7,11 @@ const Home = React.lazy(() => import("../page/Home/Home.tsx"));
 const Unfound = React.lazy(() => import("../page/Unfound/Unfound.tsx"));
 const ROUTES = [
     {
-        path: "/",
+        path: "/yunlideyang.github.io",
         element: <Home />
     },
     {
-        path: "/personal-website/home",
+        path: "/yunlideyang.github.io/personal-website",
         element: <Home />
     },
     {

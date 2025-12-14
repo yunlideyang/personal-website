@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import styles from './index.module.less'
 import testApi from '../../../api/testApi'
 export default function Home() {
-    const [data, setData] = useState<string>("开发者")
+    const [data, setData] = useState<string>(localStorage.getItem("name") || "开发者")
+    // localStorage.setItem("name", "云力")
     useEffect(() => {
         testApi()
-            .then((data: any) => setData(data.message))
+            .then((data: any) => {
+                setData(data.message)
+                localStorage.setItem("name", data.message)
+            })
     }, [])
     return (
         <div className={styles.home}>
