@@ -1,4 +1,4 @@
-import { useRoutes, Route, BrowserRouter, Routes, Navigate } from "react-router";
+import { useRoutes, BrowserRouter } from "react-router-dom";
 
 import React from "react";
 
@@ -6,6 +6,10 @@ import React from "react";
 const Home = React.lazy(() => import("../page/Home/Home.tsx"));
 const Unfound = React.lazy(() => import("../page/Unfound/Unfound.tsx"));
 const ROUTES = [
+    {
+        path: "/",
+        element: <Home />
+    },
     {
         path: "/personal-website/home",
         element: <Home />
