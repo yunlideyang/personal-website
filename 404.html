@@ -1,14 +1,23 @@
-<!doctype html>
-<html lang="en">
-  <head >
-    <base href="/personal-website/">
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="assets/sheep.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>personal-website-frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Loading...</title>
+  <script>
+    // 核心逻辑：把 History 模式的路径重定向到 Hash 模式
+    (function() {
+      // 你的 GitHub Pages 仓库基础路径
+      const basePath = '/personal-website/';
+      // 获取当前页面的路径和参数（比如 /home?a=1）
+      const fullPath = window.location.pathname + window.location.search;
+      
+      // 去掉基础路径前缀，避免重复（比如 /personal-website/home → /home）
+      const relativePath = fullPath.replace(basePath, '') || '/';
+      
+      // 重定向到 index.html 的 Hash 路径（适配 React HashRouter）
+      window.location.href = basePath + '#/' + relativePath;
+    })();
+  </script>
+</head>
+<body></body>
 </html>
