@@ -5,8 +5,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/personal-website/assets/sheep-BLIUKs2g.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var basePath = '/personal-website';
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (!p) return;
+        var target = decodeURIComponent(p);
+        if (target.indexOf('/') !== 0) target = '/' + target;
+        window.history.replaceState(null, '', basePath + target);
+      })();
+    </script>
     <title>personal-website-frontend</title>
-    <script type="module" crossorigin src="/personal-website/assets/index-CaC28ZPN.js"></script>
+    <script type="module" crossorigin src="/personal-website/assets/index-bICU79DY.js"></script>
     <link rel="stylesheet" crossorigin href="/personal-website/assets/index-DBfbUtbe.css">
   </head>
   <body>
