@@ -41,3 +41,156 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+:root {
+	color-scheme: light dark;
+	--app-text: rgba(255, 255, 255, 0.92);
+	--app-text-muted: rgba(255, 255, 255, 0.62);
+	--app-border: rgba(255, 255, 255, 0.10);
+	--app-border-strong: rgba(255, 255, 255, 0.18);
+	--app-surface-1: rgba(255, 255, 255, 0.04);
+	--app-surface-2: rgba(10, 15, 29, 0.70);
+	--app-surface-3: rgba(10, 15, 29, 0.82);
+	--app-accent: rgba(56, 189, 248, 0.95);
+	--app-accent-bg: rgba(56, 189, 248, 0.16);
+	--app-accent-bg-hover: rgba(56, 189, 248, 0.26);
+	--app-page-bg: radial-gradient(1000px 600px at 20% 10%, rgba(56, 189, 248, 0.22) 0%, rgba(0, 0, 0, 0) 60%),
+		radial-gradient(900px 700px at 80% 40%, rgba(14, 165, 233, 0.18) 0%, rgba(0, 0, 0, 0) 65%),
+		linear-gradient(180deg, #0b1020 0%, #0a0f1d 100%);
+	--app-header-bg: rgba(10, 15, 29, 0.70);
+	--app-header-border: rgba(255, 255, 255, 0.08);
+	--app-code-bg: rgba(3, 6, 14, 0.92);
+	--app-code-bg-soft: rgba(3, 6, 14, 0.55);
+	--app-code-border: rgba(255, 255, 255, 0.12);
+	--app-code-text: rgba(255, 255, 255, 0.88);
+	--app-card-shell-bg: rgba(255, 255, 255, 0.06);
+	--app-card-shell-border: rgba(0, 0, 0, 0);
+	--app-shadow-shell: 0 18px 40px rgba(0, 0, 0, 0.16);
+	--app-shadow-card: 0 10px 26px rgba(0, 0, 0, 0.20);
+	--start-page-bg: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 55%, #0284c7 100%);
+	--unfound-page-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--sea-foam: rgba(56, 189, 248, 0.22);
+	--sea-deep: rgba(14, 165, 233, 0.12);
+	--project-shell-a: rgba(45, 212, 191, 0.22);
+	--project-shell-b: rgba(99, 102, 241, 0.22);
+	--project-shell-c: rgba(244, 63, 94, 0.22);
+}
+
+:root[data-theme="light"] {
+	--app-text: rgba(11, 16, 32, 0.92);
+	--app-text-muted: rgba(11, 16, 32, 0.62);
+	--app-border: rgba(15, 23, 42, 0.12);
+	--app-border-strong: rgba(15, 23, 42, 0.20);
+	--app-surface-1: rgba(255, 255, 255, 0.76);
+	--app-surface-2: rgba(255, 255, 255, 0.72);
+	--app-surface-3: rgba(255, 255, 255, 0.86);
+	--app-accent: rgba(2, 132, 199, 0.95);
+	--app-accent-bg: rgba(2, 132, 199, 0.12);
+	--app-accent-bg-hover: rgba(2, 132, 199, 0.18);
+	--app-header-bg: rgba(255, 255, 255, 0.72);
+	--app-header-border: rgba(15, 23, 42, 0.10);
+	--app-code-bg: rgba(15, 23, 42, 0.94);
+	--app-code-bg-soft: rgba(15, 23, 42, 0.12);
+	--app-code-border: rgba(15, 23, 42, 0.22);
+	--app-code-text: rgba(255, 255, 255, 0.90);
+	--app-card-shell-bg: rgba(2, 132, 199, 0.10);
+	--app-card-shell-border: rgba(0, 0, 0, 0);
+	--app-shadow-shell: 0 12px 26px rgba(15, 23, 42, 0.08);
+	--app-shadow-card: 0 8px 18px rgba(15, 23, 42, 0.10);
+	--start-page-bg: linear-gradient(135deg, #f7fbff 0%, #e8f4ff 55%, #dbeafe 100%);
+	--unfound-page-bg: linear-gradient(135deg, #f7fbff 0%, #efeaff 100%);
+	--sea-foam: rgba(2, 132, 199, 0.26);
+	--sea-deep: rgba(99, 102, 241, 0.18);
+	--app-page-bg: radial-gradient(1000px 700px at 18% 8%, rgba(2, 132, 199, 0.22) 0%, rgba(0, 0, 0, 0) 62%),
+		radial-gradient(1000px 800px at 82% 42%, rgba(99, 102, 241, 0.18) 0%, rgba(0, 0, 0, 0) 68%),
+		linear-gradient(180deg, #eef7ff 0%, #eaf0ff 100%);
+	--project-shell-a: rgba(45, 212, 191, 0.52);
+	--project-shell-b: rgba(99, 102, 241, 0.52);
+	--project-shell-c: rgba(244, 63, 94, 0.52);
+}
+
+body {
+	background: var(--app-page-bg);
+	color: var(--app-text);
+	transition: background 180ms ease, color 180ms ease;
+	font-size: 17px;
+	line-height: 1.6;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	position: relative;
+}
+
+body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+html {
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+#root {
+	position: relative;
+	z-index: 1;
+}
+
+@keyframes seaDrift {
+	0% {
+		transform: translate3d(-6%, 0, 0);
+	}
+	50% {
+		transform: translate3d(6%, 0, 0);
+	}
+	100% {
+		transform: translate3d(-6%, 0, 0);
+	}
+}
+
+@keyframes seaDriftReverse {
+	0% {
+		transform: translate3d(7%, 0, 0);
+	}
+	50% {
+		transform: translate3d(-7%, 0, 0);
+	}
+	100% {
+		transform: translate3d(7%, 0, 0);
+	}
+}
+
+body::before,
+body::after {
+	content: '';
+	position: fixed;
+	inset: -35%;
+	pointer-events: none;
+	z-index: 0;
+	background-repeat: repeat;
+	filter: blur(0.2px);
+}
+
+body::before {
+	opacity: 0.42;
+	background-image:
+		radial-gradient(closest-side, var(--sea-foam) 0%, rgba(0, 0, 0, 0) 70%),
+		radial-gradient(closest-side, var(--sea-deep) 0%, rgba(0, 0, 0, 0) 68%),
+		repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 22px, rgba(255, 255, 255, 0.03) 22px 23px);
+	background-size: 320px 240px, 420px 300px, 60px 60px;
+	background-position: 0 0, 160px 120px, 0 0;
+	animation: seaDrift 14s ease-in-out infinite;
+}
+
+body::after {
+	opacity: 0.28;
+	background-image:
+		radial-gradient(closest-side, var(--sea-deep) 0%, rgba(0, 0, 0, 0) 72%),
+		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 12px, rgba(0, 0, 0, 0) 12px 28px);
+	background-size: 560px 380px, 140px 140px;
+	background-position: 80px 40px, 0 0;
+	animation: seaDriftReverse 18s ease-in-out infinite;
+}

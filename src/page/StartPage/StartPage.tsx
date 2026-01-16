@@ -1,0 +1,51 @@
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import styles from './index.module.less'
+import testApi from '../../../api/testApi'
+
+export default function StartPage() {
+    const [data, setData] = useState<string>(localStorage.getItem("name") || "开发者")
+    useEffect(() => {
+        testApi()
+            .then((data: any) => {
+                setData(data.message)
+                localStorage.setItem("name", data.message)
+            })
+    }, [])
+    return (
+        <div className={styles.home}>
+            <div className={styles.container}>
+                <div className={styles.content}>
+                    <div className={styles.greeting}>
+                        <h1 className={styles.title}>你好，我是</h1>
+                        <h2 className={styles.name}>{data}</h2>
+                    </div>
+
+                    <div className={styles.intro}>
+                        <p className={styles.description}>
+                            专注于创造优雅、高效的解决方案
+                        </p>
+                        <p className={styles.subDescription}>
+                            用代码构建美好的数字世界
+                        </p>
+                    </div>
+
+                    <div className={styles.actions}>
+                        <Link to="/personal-website/home#projects" className={styles.button}>
+                            了解更多
+                        </Link>
+                        <Link to="/personal-website/home#blog" className={`${styles.button} ${styles.buttonSecondary}`}>
+                            联系我
+                        </Link>
+                    </div>
+                </div>
+
+                <div className={styles.decorative}>
+                    <div className={styles.circle}></div>
+                    <div className={styles.circle}></div>
+                    <div className={styles.circle}></div>
+                </div>
+            </div>
+        </div>
+    )
+}

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // 2. 全局配置（核心）
 const service = axios.create({
-  baseURL: 'https://yunlideyang.ltd/api', // 你的后端基础地址（替代每次写完整 URL）
+  baseURL: import.meta.env.DEV ? '/api' : 'https://yunlideyang.ltd/api', // 你的后端基础地址（替代每次写完整 URL）
   timeout: 5000, // 请求超时时间（5秒）
   headers: {
     'Content-Type': 'application/json', // 默认请求头

@@ -3,14 +3,14 @@ import styles from './index.module.less'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 export default function Unfound() {
-  const [time, setTime] = useState(4)
+  const [time, setTime] = useState(2)
   const navigate = useNavigate()
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTime((prevTime) => {
         if (prevTime <= 1) {
-          navigate('/personal-website/home')
+          navigate('/personal-website/start')
           return 0
         }
         return prevTime - 1
@@ -22,7 +22,7 @@ export default function Unfound() {
   }, [navigate])
   
   const handleGoHome = () => {
-    navigate('/personal-website/home')
+    navigate('/personal-website/start')
   }
 
   return (

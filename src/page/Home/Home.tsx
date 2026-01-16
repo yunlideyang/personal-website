@@ -1,50 +1,58 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './index.module.less'
-import testApi from '../../../api/testApi'
+import ProjectsSection from '../../components/ProjectsSection/ProjectsSection'
+import ResumeSection from '../../components/ResumeSection/ResumeSection'
+import BlogSection, { type BlogPost } from '../../components/BlogSection/BlogSection'
+import { juejinPosts, juejinProfileUrl } from '../../data/juejinPosts'
+import { getJuejinPosts } from '../../../api/juejinBlogApi'
 export default function Home() {
-    const [data, setData] = useState<string>(localStorage.getItem("name") || "开发者")
-    // localStorage.setItem("name", "云力")
+    const [blogPosts, setBlogPosts] = useState<readonly BlogPost[]>(juejinPosts)
+    const location = useLocation()
+
     useEffect(() => {
-        testApi()
-            .then((data: any) => {
-                setData(data.message)
-                localStorage.setItem("name", data.message)
+        const hash = location.hash
+        if (!hash) return
+
+        const id = decodeURIComponent(hash.slice(1))
+        const el = document.getElementById(id)
+        if (!el) return
+
+        requestAnimationFrame(() => {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        })
+    }, [location.hash])
+
+    useEffect(() => {
+        getJuejinPosts({ cursor: '0', limit: 20 })
+            .then((res) => {
+                if (Array.isArray(res.list) && res.list.length) {
+                    setBlogPosts(res.list)
+                }
+            })
+            .catch(() => {
             })
     }, [])
+
     return (
-        <div className={styles.home}>
-            <div className={styles.container}>
-                <div className={styles.content}>
-                    <div className={styles.greeting}>
-                        <h1 className={styles.title}>你好，我是</h1>
-                        <h2 className={styles.name}>{data}</h2>
-                    </div>
-
-                    <div className={styles.intro}>
-                        <p className={styles.description}>
-                            专注于创造优雅、高效的解决方案
-                        </p>
-                        <p className={styles.subDescription}>
-                            用代码构建美好的数字世界
-                        </p>
-                    </div>
-
-                    <div className={styles.actions}>
-                        <a href="#about" className={styles.button}>
-                            了解更多
-                        </a>
-                        <a href="#contact" className={`${styles.button} ${styles.buttonSecondary}`}>
-                            联系我
-                        </a>
-                    </div>
+        <div className={styles.page}>
+            <header className={styles.header}>
+                <div className={styles.headerInner}>
+                    <div className={styles.brand}>Yunlideyang Home</div>
+                    <nav className={styles.nav}>
+                        <Link className={styles.navLink} to="/personal-website/home#projects">项目</Link>
+                        <Link className={styles.navLink} to="/personal-website/home#resume">简历</Link>
+                        <Link className={styles.navLink} to="/personal-website/home#blog">博客</Link>
+                    </nav>
                 </div>
-
-                <div className={styles.decorative}>
-                    <div className={styles.circle}></div>
-                    <div className={styles.circle}></div>
-                    <div className={styles.circle}></div>
+            </header>
+            <main className={styles.main}>
+                <div className={styles.container}>
+                    <ProjectsSection />
+                    <ResumeSection />
+                    <BlogSection posts={blogPosts} profileUrl={juejinProfileUrl} />
                 </div>
-            </div>
+            </main>
         </div>
     )
 }

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--unfound-page-bg);
   padding: 20px;
   position: relative;
   overflow: hidden;
@@ -64,7 +64,7 @@
 .number {
   font-size: 120px;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--app-text);
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   animation: bounce 2s ease-in-out infinite;
   display: inline-block;
@@ -73,8 +73,8 @@
 .zero {
   font-size: 120px;
   font-weight: 900;
-  color: #ffd700;
-  text-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+  color: var(--app-accent);
+  text-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
   animation: rotate 3s ease-in-out infinite;
   display: inline-block;
 }
@@ -121,7 +121,7 @@
 .title {
   font-size: 32px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--app-text);
   margin: 0 0 15px 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
@@ -129,7 +129,8 @@
 
 .description {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--app-text);
+  opacity: 0.9;
   margin: 0 0 30px 0;
   line-height: 1.6;
   max-width: 500px;
@@ -138,21 +139,22 @@
 
 .timer {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--app-text);
+  opacity: 0.82;
   margin-bottom: 30px;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--app-surface-1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--app-border);
 }
 
 .homeButton {
   padding: 15px 40px;
   font-size: 18px;
   font-weight: 600;
-  color: #667eea;
-  background: #ffffff;
+  color: var(--app-text);
+  background: var(--app-surface-3);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -164,7 +166,7 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    background: #f0f0f0;
+    background: var(--app-surface-2);
   }
 
   &:active {
