@@ -1,0 +1,1 @@
+function e(e){let t=(e.label||``).toLowerCase(),n=(e.url||``).toLowerCase();return t.includes(`力扣`)||n.includes(`leetcode`)?`leetcode`:t.includes(`gitee`)||n.includes(`gitee.com`)?`gitee`:t.includes(`掘金`)||n.includes(`juejin.cn`)?`juejin`:null}export{e as t};
